@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("First App"),
+        title: Text("First App"),
       ),
       body: Center(
         child: Text("Hello this is my $no st app in $name."),
