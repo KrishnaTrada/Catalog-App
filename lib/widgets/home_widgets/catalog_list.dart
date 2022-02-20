@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/pages/home_detail_page.dart';
@@ -48,7 +50,7 @@ class CatalogItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.lg.color(myTheme.darkBluishColor).bold.make(),
+              catalog.name.text.lg.color(context.accentColor).bold.make(),
               catalog.desc.text.sm.make(),
               5.heightBox,
               ButtonBar(
@@ -60,15 +62,15 @@ class CatalogItem extends StatelessWidget {
                       onPressed: () {},
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              myTheme.darkBluishColor),
+                              context.theme.buttonColor),
                           shape: MaterialStateProperty.all(StadiumBorder())),
-                      child: "Buy".text.make())
+                      child: "Add to Cart".text.make())
                 ],
               ).pOnly(right: 8.0)
             ],
           ))
         ],
       ),
-    ).white.rounded.square(140).make().py16();
+    ).color(context.cardColor).rounded.square(140).make().py16();
   }
 }

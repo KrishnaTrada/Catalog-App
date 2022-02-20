@@ -14,7 +14,8 @@ class CatalogHeader extends StatelessWidget {
             .text
             .xl4
             .bold
-            .color(myTheme.darkBluishColor)
+            // ignore: deprecated_member_use
+            .color(context.theme.accentColor)
             .center
             .make(),
         "Popular Products".text.xl.make(),

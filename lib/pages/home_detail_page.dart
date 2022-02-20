@@ -14,10 +14,12 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: myTheme.creamColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -27,9 +29,11 @@ class HomeDetailPage extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(myTheme.darkBluishColor),
+                            // ignore: deprecated_member_use
+                            MaterialStateProperty.all(
+                                context.theme.buttonColor),
                         shape: MaterialStateProperty.all(StadiumBorder())),
-                    child: "Buy".text.make())
+                    child: "Add to Cart".text.make())
                 .wh(120, 50)
           ],
         ).px32().py24(),
@@ -48,16 +52,21 @@ class HomeDetailPage extends StatelessWidget {
                   arcType: VxArcType.CONVEY,
                   edge: VxEdge.TOP,
                   child: Container(
-                    color: Colors.white,
+                    color: context.cardColor,
                     width: context.screenWidth,
                     child: Column(
                       children: [
                         catalog.name.text.xl4
-                            .color(myTheme.darkBluishColor)
+                            .color(context.accentColor)
                             .bold
                             .make()
                             .pOnly(top: 40.0),
                         catalog.desc.text.xl.make(),
+                        10.heightBox,
+                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            .text
+                            .make()
+                            .p16(),
                       ],
                     ),
                   ),
