@@ -1,16 +1,12 @@
 class CatalogModel {
   static List<Item> items = [];
-  //  = [
-  //   Item(
-  //     id: "001",
-  //     name: "Rolls Royes",
-  //     desc: "Top modl",
-  //     price: 20000000,
-  //     color: "#005ce6",
-  //     img:
-  //         "https://i.pinimg.com/550x/60/8b/3b/608b3b203384394045eaf9e1cfc2fc48.jpg",
-  //   )
-  // ];
+
+  // get item by id
+  Item getById(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  // get item by position
+  Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
